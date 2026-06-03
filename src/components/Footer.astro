@@ -1,0 +1,57 @@
+---
+import { topLevelPages, contactInfo } from "../data/home";
+---
+
+<footer class="border-t border-white/5 bg-[#06131f] text-white">
+  <div class="mx-auto grid max-w-7xl gap-10 px-6 py-12 lg:grid-cols-5 lg:px-10">
+    <div>
+      <p class="font-display text-xl font-bold tracking-[0.08em] text-white">{contactInfo.company}</p>
+      <p class="mt-3 max-w-md text-sm leading-7 text-white/65">
+        Professional manufacturer for fluid handling equipment, petrochemical machinery, port machinery and marine safety systems.
+      </p>
+    </div>
+
+    <div>
+      <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Quick Links</p>
+      <div class="mt-3 space-y-2 text-sm text-white/65">
+        {topLevelPages.map((item) => (
+          <p><a href={item.href} class="transition hover:text-white">{item.label}</a></p>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Products</p>
+      <div class="mt-3 space-y-2 text-sm text-white/65">
+        <p><a href="/products/" class="transition hover:text-white">Marine Fluid Transfer</a></p>
+        <p><a href="/products/" class="transition hover:text-white">Land Fluid Transfer</a></p>
+        <p><a href="/products/" class="transition hover:text-white">Safe Mooring Systems</a></p>
+        <p><a href="/products/" class="transition hover:text-white">Berthing Aid Systems</a></p>
+      </div>
+    </div>
+
+    <div>
+      <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Support</p>
+      <div class="mt-3 space-y-2 text-sm text-white/65">
+        <p><a href="/downloads/" class="transition hover:text-white">Documentation</a></p>
+        <p><a href="/engineering-strength/" class="transition hover:text-white">Service & Support</a></p>
+        <p><a href="/downloads/" class="transition hover:text-white">Downloads</a></p>
+        <p><a href="/contact/" class="transition hover:text-white">FAQ</a></p>
+      </div>
+    </div>
+
+    <div>
+      <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Contact Us</p>
+      <div class="mt-3 space-y-2 text-sm text-white/65">
+        <p>{contactInfo.company}</p>
+        <p>{contactInfo.address}</p>
+        <p>{contactInfo.tel}</p>
+        <p>{contactInfo.mobile}</p>
+        <p>{contactInfo.fax}</p>
+        <p>
+          <a href="mailto:sales@hanlongsz.cn" class="transition hover:text-white">{contactInfo.email}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

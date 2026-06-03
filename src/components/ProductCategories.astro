@@ -1,0 +1,78 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { productCategories } from "../data/home";
+---
+
+<section id="products" class="relative overflow-hidden bg-[#05101c] py-24 text-white">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_34%),linear-gradient(180deg,rgba(8,20,34,0.96),rgba(4,12,22,0.98))]"></div>
+
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+      <SectionHeading
+        eyebrow="Products"
+        title="Structured by Transfer and Terminal Function"
+        description="Products are grouped into marine fluid transfer, land fluid transfer, safe mooring systems and berthing aid systems, so buyers can scan by application instead of mixed product names."
+      />
+      <a href="/products/" class="font-display text-xs uppercase tracking-[0.2em] text-primary transition hover:text-cyan-200">
+        View All Product Columns
+      </a>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2">
+      {productCategories.map((category, index) => (
+        <article class="group overflow-hidden rounded-[26px] border border-cyan-400/20 bg-[#071320] shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_24px_56px_rgba(2,8,23,0.42)] transition duration-300 hover:border-cyan-300/40 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.16),0_28px_64px_rgba(8,145,178,0.18)]">
+          <a href={category.href} class="block">
+            <div class="m-5 overflow-hidden rounded-[18px] border border-white/6 bg-[linear-gradient(180deg,rgba(18,39,59,0.98),rgba(8,18,30,0.98))]">
+              <img
+                src={category.coverImage}
+                alt={category.title}
+                class="h-[300px] w-full object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
+
+            <div class="px-5 pb-6 sm:px-6">
+              <div class="flex items-start gap-4">
+                <div class="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-cyan-400/15 bg-cyan-400/5 text-cyan-300">
+                  <span class="font-display text-lg font-bold tracking-[0.08em]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <div class="min-w-0">
+                  <h3 class="font-display text-[1.7rem] font-bold leading-tight text-white sm:text-[1.85rem]">
+                    {category.title}
+                  </h3>
+                  <p class="mt-2 text-[13px] leading-6 text-white/68 sm:text-sm sm:leading-7">
+                    {category.description}
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                {category.items.map((item) => (
+                  <span class="rounded-full border border-cyan-400/15 bg-cyan-400/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-cyan-200/90">
+                    {item.title}
+                  </span>
+                ))}
+              </div>
+
+              <div class="mt-5 border-t border-white/8 pt-4">
+                <div class="font-display text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Explore Solutions ->
+                </div>
+                <div class="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-white/58">
+                  {category.items.map((item) => (
+                    <span class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                      {item.note}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

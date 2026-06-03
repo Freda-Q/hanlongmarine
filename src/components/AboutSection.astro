@@ -1,0 +1,42 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { aboutCapabilities } from "../data/home";
+---
+
+<section id="engineering" class="border-y border-white/5 bg-[#0d2031] py-24 text-white">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <SectionHeading
+      eyebrow="Manufacturing"
+      title="Real Workshop, Real Manufacturing Capability"
+      description="Advanced facilities, skilled teams and strict quality control ensure every system we deliver is built to perform."
+    />
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-[1fr_1fr_1fr]">
+      <figure class="overflow-hidden border border-white/10 bg-white/5">
+        <img src="/assets/workshop.png" alt="Hanlong workshop" class="h-64 w-full object-cover" />
+      </figure>
+      <figure class="overflow-hidden border border-white/10 bg-white/5">
+        <img src="/assets/testing.png" alt="Hanlong testing and NDT" class="h-64 w-full object-cover" />
+      </figure>
+      <figure class="overflow-hidden border border-white/10 bg-white/5">
+        <img src="/assets/hero_poster.png" alt="Hanlong engineered systems" class="h-64 w-full object-cover" />
+      </figure>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-[1fr_1fr_1fr_0.9fr]">
+      {aboutCapabilities.map((item) => (
+        <article class="border border-white/10 bg-[#10273b] p-6">
+          <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-white">{item.title}</h3>
+          <p class="mt-4 text-sm leading-8 text-white/70">{item.description}</p>
+        </article>
+      ))}
+      <article class="flex flex-col justify-between border border-primary/30 bg-[#0a3248] p-6">
+        <div>
+          <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">Built to Last</p>
+          <p class="mt-4 text-sm leading-8 text-white/70">Engineered for safety. Built to perform.</p>
+        </div>
+        <div class="mt-6 font-display text-xl font-bold uppercase text-primary">Hanlong</div>
+      </article>
+    </div>
+  </div>
+</section>
