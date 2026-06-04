@@ -1,3 +1,6 @@
+const BASE_URL = import.meta.env.BASE_URL;
+const withBase = (path: string) => `${BASE_URL}${path.replace(/^\//, "")}`;
+
 export const heroStats = [
   { value: "200+", label: "Projects Delivered" },
   { value: "30+", label: "Countries Served" },
@@ -19,19 +22,19 @@ export const productCategories = [
     title: "Marine Fluid Transfer",
     description:
       "Ship-to-shore fluid transfer equipment for crude oil, chemical, LNG and LPG terminals with controlled motion envelope and safer vessel interface design.",
-    coverImage: "/assets/home-categories/marine-fluid-transfer.png",
-    href: "/products/",
+    coverImage: withBase("/assets/home-categories/marine-fluid-transfer.png"),
+    href: withBase("/products/"),
     items: [
       {
         slug: "marine-loading-arms",
         title: "Marine Loading Arms",
-        image: "/assets/marine_loading_arm.png",
+        image: withBase("/assets/marine_loading_arm.png"),
         note: "ERS & QC/DC focused flagship product"
       },
       {
         slug: "jetty-gangways",
         title: "Jetty Gangways",
-        image: "/assets/marine_loading_arm.png",
+        image: withBase("/assets/marine_loading_arm.png"),
         note: "Marine access and terminal walkway systems"
       }
     ]
@@ -41,19 +44,19 @@ export const productCategories = [
     title: "Land Fluid Transfer",
     description:
       "Depot and terminal loading equipment for truck, railcar and skid-mounted transfer systems with vapor recovery and metering-ready layouts.",
-    coverImage: "/assets/home-categories/land-fluid-transfer.png",
-    href: "/products/",
+    coverImage: withBase("/assets/home-categories/land-fluid-transfer.png"),
+    href: withBase("/products/"),
     items: [
       {
         slug: "truck-railcar-loading-arms",
         title: "Truck & Railcar Loading Arms",
-        image: "/assets/truck_loading_arm.png",
+        image: withBase("/assets/truck_loading_arm.png"),
         note: "Top / bottom loading and vapor recovery"
       },
       {
         slug: "integrated-loading-skids",
         title: "Integrated Loading Skids",
-        image: "/assets/truck_loading_arm.png",
+        image: withBase("/assets/truck_loading_arm.png"),
         note: "System integration and packaged loading modules"
       }
     ]
@@ -63,19 +66,19 @@ export const productCategories = [
     title: "Safe Mooring Systems",
     description:
       "Safety-critical mooring hardware and monitoring systems designed for controlled release, real-time load visibility and hazardous-area compatibility.",
-    coverImage: "/assets/home-categories/safe-mooring-systems.png",
-    href: "/products/",
+    coverImage: withBase("/assets/home-categories/safe-mooring-systems.png"),
+    href: withBase("/products/"),
     items: [
       {
         slug: "quick-release-mooring-hooks",
         title: "Quick Release Mooring Hooks",
-        image: "/assets/quick_release_hook.png",
+        image: withBase("/assets/quick_release_hook.png"),
         note: "Capstan and load monitoring focused"
       },
       {
         slug: "mooring-load-monitoring-system",
         title: "Mooring Load Monitoring System",
-        image: "/assets/quick_release_hook.png",
+        image: withBase("/assets/quick_release_hook.png"),
         note: "Tension monitoring software and field terminals"
       }
     ]
@@ -85,13 +88,13 @@ export const productCategories = [
     title: "Berthing Aid Systems",
     description:
       "Laser-guided berthing and environmental monitoring systems that reduce approach risk and improve terminal control visibility.",
-    coverImage: "/assets/home-categories/berthing-aid-systems.png",
-    href: "/products/",
+    coverImage: withBase("/assets/home-categories/berthing-aid-systems.png"),
+    href: withBase("/products/"),
     items: [
       {
         slug: "berthing-aid-systems",
         title: "Laser-Guided Berthing Aid",
-        image: "/assets/berthing_aid_system.png",
+        image: withBase("/assets/berthing_aid_system.png"),
         note: "Laser ranging, large displays and environmental integration"
       }
     ]
@@ -102,7 +105,7 @@ export const companyIntro = {
   title: "Suzhou Hanlong Petrochemical Equipment Co., LTD",
   description:
     "Suzhou Hanlong Petrochemical Equipment Co., LTD is located in Zhangjiagang City, Jiangsu Province, around 80 kilometers from Shanghai and connected by a riverine expressway. The company focuses on fluid handling equipment, petrochemical machinery, port machinery, wharf mooring equipment, cable tension monitoring systems, laser berthing systems, environmental monitoring and control systems, and oil spill detection alarm systems. Hanlong provides design, manufacturing, sales and technical service as a specialized industrial equipment manufacturer.",
-  image: "/assets/hero_poster.png"
+  image: withBase("/assets/hero_poster.png")
 };
 
 export const aboutCapabilities = [
@@ -128,19 +131,19 @@ export const applications = [
     title: "Oil & Gas Terminals",
     description:
       "Marine loading arms, safe mooring systems and berth safety equipment for crude oil and refined product transfer.",
-    image: "/assets/hero_poster.png"
+    image: withBase("/assets/hero_poster.png")
   },
   {
     title: "Chemical & Petrochemical",
     description:
       "Safe and efficient handling of hazardous and specialty chemicals.",
-    image: "/assets/testing.png"
+    image: withBase("/assets/testing.png")
   },
   {
     title: "Marine & Bulk Terminals",
     description:
       "Engineered for diverse cargoes and demanding marine operations.",
-    image: "/assets/workshop.png"
+    image: withBase("/assets/workshop.png")
   }
 ];
 
@@ -173,12 +176,12 @@ export const ctaItems = [
 ];
 
 export const topLevelPages = [
-  { href: "/", label: "Home" },
-  { href: "/engineering-strength/", label: "About Us" },
-  { href: "/products/", label: "Products" },
-  { href: "/case-studies/", label: "Solutions" },
-  { href: "/downloads/", label: "Resources" },
-  { href: "/contact/", label: "Contact Us" }
+  { href: BASE_URL, label: "Home" },
+  { href: withBase("/engineering-strength/"), label: "About Us" },
+  { href: withBase("/products/"), label: "Products" },
+  { href: withBase("/case-studies/"), label: "Solutions" },
+  { href: withBase("/downloads/"), label: "Resources" },
+  { href: withBase("/contact/"), label: "Contact Us" }
 ];
 
 export const contactInfo = {

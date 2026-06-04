@@ -1,5 +1,6 @@
 ---
 import { topLevelPages, contactInfo } from "../data/home";
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <footer class="border-t border-white/5 bg-[#06131f] text-white">
@@ -23,20 +24,20 @@ import { topLevelPages, contactInfo } from "../data/home";
     <div>
       <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Products</p>
       <div class="mt-3 space-y-2 text-sm text-white/65">
-        <p><a href="/products/" class="transition hover:text-white">Marine Fluid Transfer</a></p>
-        <p><a href="/products/" class="transition hover:text-white">Land Fluid Transfer</a></p>
-        <p><a href="/products/" class="transition hover:text-white">Safe Mooring Systems</a></p>
-        <p><a href="/products/" class="transition hover:text-white">Berthing Aid Systems</a></p>
+        <p><a href={`${BASE_URL}products/`} class="transition hover:text-white">Marine Fluid Transfer</a></p>
+        <p><a href={`${BASE_URL}products/`} class="transition hover:text-white">Land Fluid Transfer</a></p>
+        <p><a href={`${BASE_URL}products/`} class="transition hover:text-white">Safe Mooring Systems</a></p>
+        <p><a href={`${BASE_URL}products/`} class="transition hover:text-white">Berthing Aid Systems</a></p>
       </div>
     </div>
 
     <div>
       <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Support</p>
       <div class="mt-3 space-y-2 text-sm text-white/65">
-        <p><a href="/downloads/" class="transition hover:text-white">Documentation</a></p>
-        <p><a href="/engineering-strength/" class="transition hover:text-white">Service & Support</a></p>
-        <p><a href="/downloads/" class="transition hover:text-white">Downloads</a></p>
-        <p><a href="/contact/" class="transition hover:text-white">FAQ</a></p>
+        <p><a href={`${BASE_URL}downloads/`} class="transition hover:text-white">Documentation</a></p>
+        <p><a href={`${BASE_URL}engineering-strength/`} class="transition hover:text-white">Service & Support</a></p>
+        <p><a href={`${BASE_URL}downloads/`} class="transition hover:text-white">Downloads</a></p>
+        <p><a href={`${BASE_URL}contact/`} class="transition hover:text-white">FAQ</a></p>
       </div>
     </div>
 

@@ -1,6 +1,7 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
 import { aboutCapabilities } from "../data/home";
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <section id="engineering" class="border-y border-white/5 bg-[#0d2031] py-24 text-white">
@@ -13,13 +14,13 @@ import { aboutCapabilities } from "../data/home";
 
     <div class="mt-14 grid gap-6 lg:grid-cols-[1fr_1fr_1fr]">
       <figure class="overflow-hidden border border-white/10 bg-white/5">
-        <img src="/assets/workshop.png" alt="Hanlong workshop" class="h-64 w-full object-cover" />
+        <img src={`${BASE_URL}assets/workshop.png`} alt="Hanlong workshop" class="h-64 w-full object-cover" />
       </figure>
       <figure class="overflow-hidden border border-white/10 bg-white/5">
-        <img src="/assets/testing.png" alt="Hanlong testing and NDT" class="h-64 w-full object-cover" />
+        <img src={`${BASE_URL}assets/testing.png`} alt="Hanlong testing and NDT" class="h-64 w-full object-cover" />
       </figure>
       <figure class="overflow-hidden border border-white/10 bg-white/5">
-        <img src="/assets/hero_poster.png" alt="Hanlong engineered systems" class="h-64 w-full object-cover" />
+        <img src={`${BASE_URL}assets/hero_poster.png`} alt="Hanlong engineered systems" class="h-64 w-full object-cover" />
       </figure>
     </div>
 

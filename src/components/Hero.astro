@@ -1,5 +1,6 @@
 ---
 import { heroStats } from "../data/home";
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <section class="relative overflow-hidden bg-background pt-24">
@@ -10,10 +11,10 @@ import { heroStats } from "../data/home";
       loop
       muted
       playsinline
-      poster="/assets/hero_poster.png"
+      poster={`${BASE_URL}assets/hero_poster.png`}
       class="h-full w-full object-cover object-center opacity-45"
     >
-      <source src="/assets/hero_bg_video.mp4" type="video/mp4" />
+      <source src={`${BASE_URL}assets/hero_bg_video.mp4`} type="video/mp4" />
     </video>
     <div class="absolute inset-0 bg-gradient-to-r from-background/78 via-background/42 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-background/72 via-transparent to-background/18"></div>
@@ -48,7 +49,7 @@ import { heroStats } from "../data/home";
           Explore Products
         </a>
         <a
-          href="/case-studies/"
+          href={`${BASE_URL}case-studies/`}
           class="inline-flex items-center justify-center border border-primary/30 bg-transparent px-8 py-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-primary transition hover:border-primary hover:bg-primary/10"
         >
           View Solutions
