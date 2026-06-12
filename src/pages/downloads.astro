@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+const downloads = [
+  ['Product Catalog', 'Full company and product family brochure PDF placeholder.'],
+  ['Marine Loading Arm Datasheet', 'Preliminary MLA range, ERS/QC-DC options and design notes.'],
+  ['Quick Release Hook Datasheet', 'SWL configurations, capstan options, MLMS and release control notes.'],
+  ['Loading Skid Questionnaire', 'RFQ checklist for process data, metering, valves and control integration.']
+];
+---
+<BaseLayout title="Downloads | Hanlong Petrochemical Equipment">
+  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <SectionHeading eyebrow="Downloads" title="High-intent technical resource center" copy="PDF links are placeholders in this first build. Later, each download click can be tracked through GTM as a GA4 and Google Ads conversion event." />
+    <div class="mt-12 grid gap-5 md:grid-cols-2">
+      {downloads.map(([title, copy]) => (
+        <div class="tech-card flex flex-col justify-between p-6">
+          <div>
+            <p class="font-display text-xs uppercase tracking-[0.24em] text-cyan">PDF Placeholder</p>
+            <h2 class="mt-3 font-display text-2xl font-bold uppercase text-silver">{title}</h2>
+            <p class="mt-4 text-sm leading-7 text-muted">{copy}</p>
+          </div>
+          <a href="/contact/" class="mt-6 text-sm font-bold uppercase tracking-[0.18em] text-cyan hover:text-silver">Request file via RFQ →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

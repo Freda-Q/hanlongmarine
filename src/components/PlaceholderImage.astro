@@ -1,0 +1,18 @@
+---
+const { src, alt, note, class: className = '' } = Astro.props;
+---
+<figure class={`tech-card clip-angle relative overflow-hidden bg-[radial-gradient(circle_at_30%_25%,rgba(77,244,255,.22),transparent_32%),linear-gradient(135deg,rgba(10,35,50,.96),rgba(3,10,18,.96))] ${className}`}>
+  <img src={src} alt={alt} loading="lazy" class="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-screen" />
+  <div class="relative grid min-h-[260px] place-items-center p-8 text-center">
+    <div class="absolute inset-8 border border-cyan/15"></div>
+    <div class="absolute left-10 right-10 top-1/2 h-px bg-cyan/20"></div>
+    <div class="absolute bottom-10 left-1/2 top-10 w-px bg-cyan/20"></div>
+    <div class="relative">
+      <p class="font-display text-xs font-bold uppercase tracking-[0.32em] text-cyan">Visual Placeholder</p>
+      <p class="mt-4 font-display text-3xl font-bold uppercase tracking-[0.04em] text-silver">{alt}</p>
+    </div>
+  </div>
+  <figcaption class="absolute inset-x-4 bottom-4 border border-cyan/20 bg-abyss/82 p-3 text-xs uppercase tracking-[0.16em] text-cyan backdrop-blur">
+    Image placeholder: {note}
+  </figcaption>
+</figure>

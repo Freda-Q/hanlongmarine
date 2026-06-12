@@ -1,0 +1,9 @@
+---
+const { eyebrow, title, copy, href } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+<Tag href={href} class="tech-card scanline block p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan/50 hover:shadow-glow">
+  {eyebrow && <p class="font-display text-xs font-bold uppercase tracking-[0.24em] text-cyan">{eyebrow}</p>}
+  <h3 class="mt-3 font-display text-2xl font-bold uppercase tracking-[0.03em] text-silver">{title}</h3>
+  <p class="mt-4 text-sm leading-7 text-muted">{copy}</p>
+</Tag>

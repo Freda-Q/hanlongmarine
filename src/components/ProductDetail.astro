@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from './SectionHeading.astro';
+import PlaceholderImage from './PlaceholderImage.astro';
+import CTA from './CTA.astro';
+const { product } = Astro.props;
+---
+<BaseLayout title={`${product.title} | Hanlong Petrochemical Equipment`} description={product.summary}>
+  <section class="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <div class="absolute inset-0 bg-radial opacity-80"></div>
+    <div class="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+      <div>
+        <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-cyan">{product.eyebrow}</p>
+        <h1 class="mt-5 font-display text-5xl font-bold uppercase leading-none tracking-[0.02em] text-silver sm:text-7xl">{product.title}</h1>
+        <p class="mt-6 text-xl leading-9 text-muted">{product.summary}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/contact/" class="clip-angle bg-cyan px-6 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-abyss transition hover:scale-[.98]">Send RFQ</a>
+          <a href="#technical-parameters" class="clip-angle border border-cyan/40 px-6 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-cyan transition hover:scale-[.98]">View Parameters</a>
+        </div>
+      </div>
+      <PlaceholderImage src={product.image} alt={product.title} note={product.imageNote} class="min-h-[440px]" />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
+      <aside class="tech-card h-fit p-6 lg:sticky lg:top-28">
+        <p class="font-display text-xs uppercase tracking-[0.26em] text-cyan">Product Page Sections</p>
+        <nav class="mt-5 grid gap-3 text-sm text-muted">
+          <a href="#overview" class="hover:text-cyan">Product Overview</a>
+          <a href="#components" class="hover:text-cyan">Key Components</a>
+          <a href="#technical-parameters" class="hover:text-cyan">Technical Parameters</a>
+          <a href="#applications" class="hover:text-cyan">Applications</a>
+          <a href="#standards" class="hover:text-cyan">Safety & Standards</a>
+          <a href="/contact/" class="hover:text-cyan">CTA / RFQ</a>
+        </nav>
+      </aside>
+      <div class="space-y-16">
+        <section id="overview">
+          <SectionHeading eyebrow="Product Overview" title="Built for terminal uptime" copy={product.overview} />
+        </section>
+
+        <section id="components">
+          <SectionHeading eyebrow="Key Components" title="Critical parts, clear logic" copy="Each product page is structured for EPC engineers and terminal operators who need to understand configuration, safety functions and maintainability fast." />
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            {product.components.map((item, index) => (
+              <div class="tech-card p-5">
+                <p class="font-display text-xs uppercase tracking-[0.22em] text-cyan">Component 0{index + 1}</p>
+                <p class="mt-3 text-sm leading-7 text-muted">{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="technical-parameters">
+          <SectionHeading eyebrow="Technical Parameters" title="Preliminary specification range" copy="Values are provided as initial website guidance and should be confirmed against project media, pressure, temperature, berth layout and local code requirements." />
+          <div class="mt-8 overflow-hidden border border-cyan/15">
+            <table class="w-full border-collapse text-left text-sm">
+              <tbody>
+                {product.parameters.map(([label, value]) => (
+                  <tr class="border-b border-cyan/10 last:border-0">
+                    <th class="w-1/3 bg-cyan/5 px-4 py-4 font-display uppercase tracking-[0.16em] text-cyan">{label}</th>
+                    <td class="px-4 py-4 text-muted">{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="applications">
+          <SectionHeading eyebrow="Applications" title="Where this system fits" />
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            {product.applications.map((item) => <div class="tech-card p-5 text-sm leading-7 text-muted">{item}</div>)}
+          </div>
+        </section>
+
+        <section id="standards">
+          <SectionHeading eyebrow="Safety & Standards" title="Designed around controlled risk" />
+          <div class="mt-8 grid gap-4">
+            {product.standards.map((item) => (
+              <div class="flex gap-4 border-l border-cyan/50 bg-cyan/5 p-4 text-sm leading-7 text-muted">
+                <span class="font-display text-cyan">SYS</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <CTA title={`Request a configuration for ${product.title}`} />
+</BaseLayout>

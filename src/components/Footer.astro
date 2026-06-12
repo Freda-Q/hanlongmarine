@@ -1,0 +1,27 @@
+---
+const links = [
+  ['Marine Loading Arms', '/products/marine-loading-arms/'],
+  ['Truck & Railcar Loading Arms', '/products/truck-railcar-loading-arms/'],
+  ['Integrated Loading Skids', '/products/integrated-loading-skids/'],
+  ['Quick Release Mooring Hooks', '/products/quick-release-mooring-hooks/'],
+  ['Berthing Aid Systems', '/products/berthing-aid-systems/']
+];
+---
+<footer class="border-t border-cyan/15 bg-black/20">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_.8fr_.8fr] lg:px-8">
+    <div>
+      <p class="font-display text-2xl font-bold uppercase tracking-[0.18em] text-silver">Hanlong</p>
+      <p class="mt-4 max-w-xl text-sm leading-7 text-muted">Static English B2B marketing website foundation for marine loading arms, land loading systems, quick release mooring hooks and laser-guided berthing safety systems.</p>
+    </div>
+    <div>
+      <p class="font-display text-sm uppercase tracking-[0.2em] text-cyan">Products</p>
+      <div class="mt-4 grid gap-2">
+        {links.map(([label, href]) => <a href={href} class="text-sm text-muted hover:text-cyan">{label}</a>)}
+      </div>
+    </div>
+    <div>
+      <p class="font-display text-sm uppercase tracking-[0.2em] text-cyan">RFQ Ready</p>
+      <p class="mt-4 text-sm leading-7 text-muted">Form UI is static now. Connect Wufoo, Formspree or a CRM endpoint during the conversion tracking phase.</p>
+    </div>
+  </div>
+</footer>

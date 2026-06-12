@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+const fields = ['Full Name', 'Company', 'Email', 'Country / Region', 'Product Interest', 'Project Medium', 'Design Pressure / Temperature', 'Message'];
+---
+<BaseLayout title="Contact / RFQ | Hanlong Petrochemical Equipment">
+  <section class="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-8">
+    <div>
+      <SectionHeading eyebrow="Contact / RFQ" title="Static RFQ form UI ready for Wufoo or Formspree" copy="This page is intentionally static for the first deployable version. The form action, validation and upload handling can be connected after the preferred form service is selected." />
+      <div class="mt-8 tech-card p-6">
+        <p class="font-display text-sm uppercase tracking-[0.24em] text-cyan">Suggested RFQ Attachments</p>
+        <p class="mt-4 text-sm leading-7 text-muted">Berth layout, P&ID, medium datasheet, pressure and temperature requirements, area classification, preferred standard and delivery schedule.</p>
+      </div>
+    </div>
+    <form class="tech-card grid gap-5 p-6" data-static-rfq-form>
+      {fields.map((field) => (
+        <label class="grid gap-2 text-sm font-medium text-silver">
+          <span>{field}</span>
+          {field === 'Message' ? (
+            <textarea class="min-h-32 border border-cyan/20 bg-black/25 p-3 text-silver outline-none transition focus:border-cyan" placeholder="Describe your project requirements..."></textarea>
+          ) : (
+            <input class="border border-cyan/20 bg-black/25 p-3 text-silver outline-none transition focus:border-cyan" placeholder={field} />
+          )}
+        </label>
+      ))}
+      <label class="grid gap-2 text-sm font-medium text-silver">
+        <span>Upload Drawing / Datasheet UI Placeholder</span>
+        <div class="border border-dashed border-cyan/35 bg-cyan/5 p-5 text-sm text-muted">File upload will be enabled when Wufoo, Formspree or another form endpoint is connected.</div>
+      </label>
+      <button type="button" class="clip-angle bg-cyan px-6 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-abyss transition hover:scale-[.98]">Submit RFQ Placeholder</button>
+      <p class="text-xs leading-6 text-muted">GTM event placeholder: track future form_submit, whatsapp_click and brochure_download events after integration.</p>
+    </form>
+  </section>
+</BaseLayout>

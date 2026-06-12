@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import TechCard from '../components/TechCard.astro';
+import PlaceholderImage from '../components/PlaceholderImage.astro';
+import CTA from '../components/CTA.astro';
+import { products } from '../data/products';
+---
+<BaseLayout>
+  <section class="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <div class="absolute inset-0 bg-radial"></div>
+    <div class="absolute inset-x-0 top-0 h-96 bg-[radial-gradient(circle_at_center,rgba(73,244,255,.16),transparent_62%)]"></div>
+    <div class="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+      <div>
+        <p class="font-display text-sm font-bold uppercase tracking-[0.34em] text-cyan">Marine Terminals · Loading Arms · Mooring Safety</p>
+        <h1 class="mt-6 font-display text-5xl font-bold uppercase leading-none tracking-[0.01em] text-silver sm:text-7xl lg:text-8xl">Engineered Transfer Systems for Safer Berths</h1>
+        <p class="mt-8 max-w-2xl text-lg leading-8 text-muted">Hanlong builds marine loading arms, land loading systems, integrated skids, quick release hooks and laser-guided berthing aid systems for oil, gas and chemical terminals.</p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="/products/" class="clip-angle bg-cyan px-7 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-abyss transition hover:scale-[.98]">Explore Products</a>
+          <a href="/engineering-strength/" class="clip-angle border border-cyan/40 px-7 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-cyan transition hover:scale-[.98]">Factory Strength</a>
+        </div>
+      </div>
+      <PlaceholderImage src="/images/placeholder-hero-ocean-terminal.webp" alt="Industrial marine terminal hero placeholder" note="Replace with looping ocean terminal video poster or high-resolution marine loading operation visual." class="min-h-[520px]" />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading eyebrow="Core Product Lines" title="From fluid transfer to berth safety" copy="The site separates marine loading, land loading, skid integration, mooring and berthing systems so overseas EPC and terminal buyers can self-qualify quickly." />
+    <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {products.map((product) => <TechCard eyebrow={product.eyebrow} title={product.title} copy={product.summary} href={`/products/${product.slug}/`} />)}
+      <TechCard eyebrow="Engineering" title="Factory & QA Strength" copy="FEA design, CNC machining, calibrated test beds, NDT and traceability content for buyer confidence." href="/engineering-strength/" />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid gap-6 lg:grid-cols-3">
+      {['Real Factory Capability', 'Safety-Critical Components', 'RFQ Conversion Ready'].map((title, index) => (
+        <div class="tech-card p-6">
+          <p class="font-display text-5xl font-bold text-cyan/40">0{index + 1}</p>
+          <h3 class="mt-4 font-display text-2xl font-bold uppercase text-silver">{title}</h3>
+          <p class="mt-4 text-sm leading-7 text-muted">Designed to support Google Ads landing traffic with clear product paths, technical trust signals and high-intent quotation calls to action.</p>
+        </div>
+      ))}
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>

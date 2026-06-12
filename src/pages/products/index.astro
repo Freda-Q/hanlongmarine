@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import TechCard from '../../components/TechCard.astro';
+import PlaceholderImage from '../../components/PlaceholderImage.astro';
+import { products, productGroups } from '../../data/products';
+---
+<BaseLayout title="Products | Hanlong Petrochemical Equipment">
+  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <SectionHeading eyebrow="Products" title="Industrial equipment categories without clutter" copy="Products are organized by operation type: marine transfer, land transfer, skid-mounted systems, safe mooring and laser-guided berthing." />
+    <div class="mt-12 grid gap-8 lg:grid-cols-[.75fr_1.25fr]">
+      <div class="space-y-4">
+        {productGroups.map((group) => (
+          <div class="tech-card p-5">
+            <p class="font-display text-lg font-bold uppercase text-silver">{group.name}</p>
+            <p class="mt-3 text-sm leading-7 text-muted">{group.items.join(' · ')}</p>
+          </div>
+        ))}
+      </div>
+      <div class="grid gap-5 md:grid-cols-2">
+        {products.map((product) => <TechCard eyebrow={product.eyebrow} title={product.title} copy={product.summary} href={`/products/${product.slug}/`} />)}
+      </div>
+    </div>
+    <div class="mt-12">
+      <PlaceholderImage src="/images/placeholder-products-grid.webp" alt="Product family placeholder" note="Replace with product family collage: MLA, loading skid, QRH and berthing aid system." />
+    </div>
+  </section>
+</BaseLayout>
