@@ -1,0 +1,27 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { companyIntro } from "../data/home";
+---
+
+<section class="bg-white/80 py-24 text-slate-700">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <SectionHeading
+      eyebrow="Company Profile"
+      title={companyIntro.title}
+      description="A clearer company introduction section gives buyers quick geographic, industrial and capability context before they move deeper into products."
+      tone="light"
+    />
+
+    <div class="mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <figure class="overflow-hidden border border-slate-200 bg-white shadow-[0_20px_50px_rgba(148,163,184,0.18)]">
+        <img src={companyIntro.image} alt="Hanlong terminal and industrial context" class="h-full min-h-[320px] w-full object-cover" />
+      </figure>
+
+      <div class="border border-slate-200 bg-white/95 p-8 shadow-[0_20px_50px_rgba(148,163,184,0.16)]">
+        <p class="text-lg leading-10 text-slate-600 sm:text-xl">
+          {companyIntro.description}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

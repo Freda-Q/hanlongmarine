@@ -1,0 +1,69 @@
+---
+import { heroStats } from "../data/home";
+const BASE_URL = import.meta.env.BASE_URL;
+---
+
+<section class="relative overflow-hidden bg-background pt-24">
+  <div class="hero-scan"></div>
+  <div class="absolute inset-0">
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      poster={`${BASE_URL}assets/hero_poster.png`}
+      class="h-full w-full object-cover object-center opacity-45"
+    >
+      <source src={`${BASE_URL}assets/hero_bg_video.mp4`} type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-r from-background/78 via-background/42 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-background/72 via-transparent to-background/18"></div>
+  </div>
+
+  <div class="relative mx-auto grid min-h-[82vh] max-w-7xl gap-12 px-6 pb-14 pt-10 lg:grid-cols-12 lg:items-center lg:px-10">
+    <div class="lg:col-span-7">
+      <div class="flex items-center gap-4">
+        <div class="h-px w-10 bg-primary"></div>
+        <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-primary">
+          Engineered for Safety. Built for Performance.
+        </p>
+      </div>
+
+      <h1 class="mt-6 flex flex-col gap-1 font-display text-5xl font-bold uppercase leading-[0.92] tracking-[-0.02em] sm:text-6xl lg:text-7xl">
+        <span class="font-light text-muted">Fluid Transfer</span>
+        <span class="text-primary">&amp; Mooring</span>
+        <span class="text-white">Systems</span>
+      </h1>
+
+      <div class="my-6 h-0.5 w-24 bg-gradient-to-r from-primary to-transparent"></div>
+
+      <p class="max-w-xl text-sm leading-8 text-muted sm:text-base">
+        Engineered for safety and built for reliability, our integrated systems keep marine and terminal operations moving.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+        <a
+          href="#products"
+          class="inline-flex items-center justify-center border border-primary bg-primary px-8 py-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-background transition hover:bg-primary/90"
+        >
+          Explore Products
+        </a>
+        <a
+          href={`${BASE_URL}case-studies/`}
+          class="inline-flex items-center justify-center border border-primary/30 bg-transparent px-8 py-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-primary transition hover:border-primary hover:bg-primary/10"
+        >
+          View Solutions
+        </a>
+      </div>
+    </div>
+
+    <div class="hidden lg:col-span-5 lg:flex lg:flex-col lg:items-end lg:gap-8 lg:text-right">
+      {heroStats.map((item) => (
+        <div class="border-r-2 border-primary pr-5">
+          <div class="font-display text-4xl font-bold leading-none text-white">{item.value}</div>
+          <div class="mt-1 font-mono text-[9px] uppercase tracking-[0.22em] text-white/65">{item.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

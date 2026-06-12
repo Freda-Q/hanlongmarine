@@ -1,32 +1,27 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const {
-  title = 'Hanlong Petrochemical Equipment | Marine Loading Arms & Mooring Systems',
-  description = 'English B2B industrial equipment website for marine loading arms, loading skids, quick release hooks and berthing aid systems.'
+  title = "Hanlong Marine Equipment",
+  description = "Astro static website migration foundation for Hanlong Marine Equipment."
 } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
     <title>{title}</title>
-    <!-- GTM placeholder: paste Google Tag Manager <script> here before launch. -->
   </head>
-  <body>
-    <!-- GTM placeholder: paste Google Tag Manager <noscript> iframe here after opening body. -->
-    <div class="min-h-screen industrial-grid">
-      <Header />
-      <main>
-        <slot />
-      </main>
-      <Footer />
-    </div>
+  <body class="tech-grid min-h-screen bg-background text-foreground">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

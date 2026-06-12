@@ -1,0 +1,13 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+
+const { title, description, eyebrow, heroTitle, heroDescription } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <PageHero eyebrow={eyebrow} title={heroTitle} description={heroDescription} />
+  <main>
+    <slot />
+  </main>
+</BaseLayout>

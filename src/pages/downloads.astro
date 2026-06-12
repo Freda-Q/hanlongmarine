@@ -1,27 +1,34 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHeading from '../components/SectionHeading.astro';
-const downloads = [
-  ['Product Catalog', 'Full company and product family brochure PDF placeholder.'],
-  ['Marine Loading Arm Datasheet', 'Preliminary MLA range, ERS/QC-DC options and design notes.'],
-  ['Quick Release Hook Datasheet', 'SWL configurations, capstan options, MLMS and release control notes.'],
-  ['Loading Skid Questionnaire', 'RFQ checklist for process data, metering, valves and control integration.']
-];
+import ContentLayout from "../layouts/ContentLayout.astro";
 ---
-<BaseLayout title="Downloads | Hanlong Petrochemical Equipment">
-  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <SectionHeading eyebrow="Downloads" title="High-intent technical resource center" copy="PDF links are placeholders in this first build. Later, each download click can be tracked through GTM as a GA4 and Google Ads conversion event." />
-    <div class="mt-12 grid gap-5 md:grid-cols-2">
-      {downloads.map(([title, copy]) => (
-        <div class="tech-card flex flex-col justify-between p-6">
-          <div>
-            <p class="font-display text-xs uppercase tracking-[0.24em] text-cyan">PDF Placeholder</p>
-            <h2 class="mt-3 font-display text-2xl font-bold uppercase text-silver">{title}</h2>
-            <p class="mt-4 text-sm leading-7 text-muted">{copy}</p>
-          </div>
-          <a href="/contact/" class="mt-6 text-sm font-bold uppercase tracking-[0.18em] text-cyan hover:text-silver">Request file via RFQ →</a>
-        </div>
-      ))}
+
+<ContentLayout
+  title="Downloads | Hanlong Marine Equipment"
+  description="Access brochure and datasheet download columns for Hanlong marine and loading equipment."
+  eyebrow="Downloads"
+  heroTitle="Brochure and Datasheet Center"
+  heroDescription="The downloads column is reserved for product catalogs, brochures and technical datasheets. It acts as a high-intent lead capture area."
+>
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <div class="grid gap-6 md:grid-cols-2">
+      <article class="tech-card p-8">
+        <div class="card-corner tl"></div>
+        <div class="card-corner tr"></div>
+        <div class="card-corner bl"></div>
+        <div class="card-corner br"></div>
+        <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Product Catalog</p>
+        <h2 class="mt-4 font-display text-3xl font-bold text-white">PDF Brochure</h2>
+        <p class="mt-4 text-sm leading-8 text-muted">Reserved for the main English product catalog and company brochure.</p>
+      </article>
+      <article class="tech-card p-8">
+        <div class="card-corner tl"></div>
+        <div class="card-corner tr"></div>
+        <div class="card-corner bl"></div>
+        <div class="card-corner br"></div>
+        <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Technical Datasheets</p>
+        <h2 class="mt-4 font-display text-3xl font-bold text-white">Datasheets & Drawings</h2>
+        <p class="mt-4 text-sm leading-8 text-muted">Reserved for MLA, truck loading, QRH, MLMS and BAS technical download entries.</p>
+      </article>
     </div>
   </section>
-</BaseLayout>
+</ContentLayout>

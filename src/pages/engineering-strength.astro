@@ -1,33 +1,14 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHeading from '../components/SectionHeading.astro';
-import PlaceholderImage from '../components/PlaceholderImage.astro';
-import CTA from '../components/CTA.astro';
-const capabilities = [
-  ['Engineering FEA & Stress Analysis', '3D CAD, ANSYS-style stress review, motion envelope checks and project-specific non-standard design support.'],
-  ['Modern Machining', 'CNC machining, flange processing, large boring and precision fabrication workflows for pressure and load-bearing parts.'],
-  ['Calibrated Test Beds', 'Load and functional testing for hooks, swivels and structural assemblies before delivery.'],
-  ['Non-Destructive Testing', 'UT, MT, RT and pressure testing records to support weld quality and pressure boundary confidence.'],
-  ['Material Traceability', 'Material certificates, inspection records, FAT files and IOM documentation prepared for EPC review.'],
-  ['Corrosion Protection', 'Marine-grade coating systems and stainless or low-temperature material options for harsh terminals.']
-];
+import ContentLayout from "../layouts/ContentLayout.astro";
+import AboutSection from "../components/AboutSection.astro";
 ---
-<BaseLayout title="Engineering & Strength | Hanlong Petrochemical Equipment">
-  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <SectionHeading eyebrow="Engineering & Strength" title="Proof that buyers are dealing with a real factory" copy="This page is designed to reduce overseas buyer risk by making manufacturing, engineering and quality assurance visible before the first RFQ call." />
-    <div class="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
-      <PlaceholderImage src="/images/placeholder-engineering-fea.webp" alt="Engineering FEA placeholder" note="Replace with FEA stress analysis screenshots, CAD assemblies and engineered drawings." />
-      <PlaceholderImage src="/images/placeholder-factory-machining.webp" alt="Factory machining placeholder" note="Replace with CNC machining, welding, test bed and NDT workshop photography." />
-    </div>
-    <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-      {capabilities.map(([title, copy]) => (
-        <div class="tech-card p-6">
-          <p class="font-display text-xs uppercase tracking-[0.24em] text-cyan">Factory Capability</p>
-          <h2 class="mt-3 font-display text-2xl font-bold uppercase text-silver">{title}</h2>
-          <p class="mt-4 text-sm leading-7 text-muted">{copy}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-  <CTA title="Ask for manufacturing records with your RFQ" copy="For serious projects, include medium, pressure, temperature, berth drawing and certification expectations so the engineering team can prepare the right documentation path." />
-</BaseLayout>
+
+<ContentLayout
+  title="Engineering & Strength | Hanlong Marine Equipment"
+  description="Review Hanlong manufacturing facilities, engineering design capability and quality assurance structure."
+  eyebrow="Engineering & Strength"
+  heroTitle="Factory Proof and Engineering Capability"
+  heroDescription="This column focuses on manufacturing facilities, engineering design and quality assurance, aimed at reducing supplier-risk concerns for overseas buyers."
+>
+  <AboutSection />
+</ContentLayout>

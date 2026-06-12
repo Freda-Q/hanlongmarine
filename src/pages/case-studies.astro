@@ -1,27 +1,14 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHeading from '../components/SectionHeading.astro';
-import PlaceholderImage from '../components/PlaceholderImage.astro';
-const cases = [
-  ['Oil & Gas Terminals', 'Marine loading arms, truck loading arms and mooring safety upgrades for crude oil and refined product berths.'],
-  ['LNG & Cryogenic Projects', 'Low-temperature transfer systems, ERS-ready marine arms and berth monitoring concepts for cryogenic applications.'],
-  ['Chemical & Industrial Ports', 'Corrosion-aware loading systems and vapor recovery-ready configurations for chemical transfer operations.']
-];
+import ContentLayout from "../layouts/ContentLayout.astro";
+import ApplicationsSection from "../components/ApplicationsSection.astro";
 ---
-<BaseLayout title="Case Studies | Hanlong Petrochemical Equipment">
-  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <SectionHeading eyebrow="Case Studies" title="Global track record structure" copy="This static first version prepares the project proof layout. Replace placeholders with real delivery photos, country labels, terminal type and project scope when approved." />
-    <div class="mt-12 grid gap-6 lg:grid-cols-3">
-      {cases.map(([title, copy], index) => (
-        <article class="tech-card overflow-hidden">
-          <PlaceholderImage src={`/images/placeholder-case-${index + 1}.webp`} alt={`${title} placeholder`} note={`Replace with real ${title} project image and visible equipment context.`} />
-          <div class="p-6">
-            <p class="font-display text-xs uppercase tracking-[0.24em] text-cyan">Case Cluster</p>
-            <h2 class="mt-3 font-display text-2xl font-bold uppercase text-silver">{title}</h2>
-            <p class="mt-4 text-sm leading-7 text-muted">{copy}</p>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-</BaseLayout>
+
+<ContentLayout
+  title="Case Studies & Global Track Record | Hanlong Marine Equipment"
+  description="Explore Hanlong application and delivery-oriented site columns for oil & gas terminals, LNG projects and chemical ports."
+  eyebrow="Case Studies & Global Track Record"
+  heroTitle="Application and Delivery Columns"
+  heroDescription="The case studies area is organized around industry application clusters to support project storytelling, reference building and lead qualification."
+>
+  <ApplicationsSection />
+</ContentLayout>

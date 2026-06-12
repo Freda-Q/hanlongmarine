@@ -1,27 +1,58 @@
 ---
-const links = [
-  ['Marine Loading Arms', '/products/marine-loading-arms/'],
-  ['Truck & Railcar Loading Arms', '/products/truck-railcar-loading-arms/'],
-  ['Integrated Loading Skids', '/products/integrated-loading-skids/'],
-  ['Quick Release Mooring Hooks', '/products/quick-release-mooring-hooks/'],
-  ['Berthing Aid Systems', '/products/berthing-aid-systems/']
-];
+import { topLevelPages, contactInfo } from "../data/home";
+const BASE_URL = import.meta.env.BASE_URL;
 ---
-<footer class="border-t border-cyan/15 bg-black/20">
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_.8fr_.8fr] lg:px-8">
+
+<footer class="border-t border-white/5 bg-[#06131f] text-white">
+  <div class="mx-auto grid max-w-7xl gap-10 px-6 py-12 lg:grid-cols-5 lg:px-10">
     <div>
-      <p class="font-display text-2xl font-bold uppercase tracking-[0.18em] text-silver">Hanlong</p>
-      <p class="mt-4 max-w-xl text-sm leading-7 text-muted">Static English B2B marketing website foundation for marine loading arms, land loading systems, quick release mooring hooks and laser-guided berthing safety systems.</p>
+      <p class="font-display text-xl font-bold tracking-[0.08em] text-white">{contactInfo.company}</p>
+      <p class="mt-3 max-w-md text-sm leading-7 text-white/65">
+        Professional manufacturer for fluid handling equipment, petrochemical machinery, port machinery and marine safety systems.
+      </p>
     </div>
+
     <div>
-      <p class="font-display text-sm uppercase tracking-[0.2em] text-cyan">Products</p>
-      <div class="mt-4 grid gap-2">
-        {links.map(([label, href]) => <a href={href} class="text-sm text-muted hover:text-cyan">{label}</a>)}
+      <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Quick Links</p>
+      <div class="mt-3 space-y-2 text-sm text-white/65">
+        {topLevelPages.map((item) => (
+          <p><a href={item.href} class="transition hover:text-white">{item.label}</a></p>
+        ))}
       </div>
     </div>
+
     <div>
-      <p class="font-display text-sm uppercase tracking-[0.2em] text-cyan">RFQ Ready</p>
-      <p class="mt-4 text-sm leading-7 text-muted">Form UI is static now. Connect Wufoo, Formspree or a CRM endpoint during the conversion tracking phase.</p>
+      <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Products</p>
+      <div class="mt-3 space-y-2 text-sm text-white/65">
+        <p><a href={`${BASE_URL}products/`} class="transition hover:text-white">Marine Fluid Transfer</a></p>
+        <p><a href={`${BASE_URL}products/`} class="transition hover:text-white">Land Fluid Transfer</a></p>
+        <p><a href={`${BASE_URL}products/`} class="transition hover:text-white">Safe Mooring Systems</a></p>
+        <p><a href={`${BASE_URL}products/`} class="transition hover:text-white">Berthing Aid Systems</a></p>
+      </div>
+    </div>
+
+    <div>
+      <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Support</p>
+      <div class="mt-3 space-y-2 text-sm text-white/65">
+        <p><a href={`${BASE_URL}downloads/`} class="transition hover:text-white">Documentation</a></p>
+        <p><a href={`${BASE_URL}engineering-strength/`} class="transition hover:text-white">Service & Support</a></p>
+        <p><a href={`${BASE_URL}downloads/`} class="transition hover:text-white">Downloads</a></p>
+        <p><a href={`${BASE_URL}contact/`} class="transition hover:text-white">FAQ</a></p>
+      </div>
+    </div>
+
+    <div>
+      <p class="font-display text-sm uppercase tracking-[0.22em] text-primary">Contact Us</p>
+      <div class="mt-3 space-y-2 text-sm text-white/65">
+        <p>{contactInfo.company}</p>
+        <p>{contactInfo.address}</p>
+        <p>{contactInfo.tel}</p>
+        <p>{contactInfo.mobile}</p>
+        <p>{contactInfo.fax}</p>
+        <p>
+          <a href="mailto:sales@hanlongsz.cn" class="transition hover:text-white">{contactInfo.email}</a>
+        </p>
+      </div>
     </div>
   </div>
 </footer>
