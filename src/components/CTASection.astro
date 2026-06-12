@@ -1,97 +1,100 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
-import { contactInfo, rfqHighlights } from "../data/home";
+import { contactInfo, rfqContactMethods } from "../data/home";
 ---
 
-<section id="contact" class="bg-[#132636] py-24 text-white">
-  <div class="mx-auto max-w-7xl px-6 lg:px-10">
-    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-      <div>
-        <SectionHeading
-          eyebrow="Get in Touch"
-          title="Send Us Your RFQ"
-          description="Tell us about your project requirements and our team will provide a tailored solution for your operations."
-        />
+<section id="rfq" class="relative overflow-hidden bg-[linear-gradient(135deg,#0B192C_0%,#1E3E62_50%,#0B192C_100%)] py-14 text-white md:py-24">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(0,210,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,210,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+  <div class="relative mx-auto grid max-w-[1320px] gap-9 px-6 md:gap-16 lg:grid-cols-[1fr_1.4fr] lg:px-10">
+    <div>
+      <SectionHeading
+        eyebrow="Request A Quote"
+        title="Start Your Project with Hanlong"
+        description="Our engineering team will review your requirements and provide a detailed technical and commercial proposal within 48 hours."
+      />
 
-        <div class="mt-8 space-y-5">
-          {rfqHighlights.map((item) => (
-            <div class="flex gap-4">
-              <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-white/5">
-                <div class="h-3 w-3 rounded-full bg-primary"></div>
+      <div class="mt-8 grid gap-[3px] sm:mt-10">
+        {rfqContactMethods.map((item) => (
+          item.href ? (
+            <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} class="flex items-center gap-4 border border-white/10 bg-[#0B192C]/55 px-4 py-4 no-underline transition hover:border-[#00D2FF]/35 hover:bg-[#1E3E62]/55 sm:gap-5 sm:px-6 sm:py-5">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center border border-[#00D2FF]/20 bg-[#00D2FF]/10 text-lg sm:h-11 sm:w-11 sm:text-xl">{item.icon}</div>
+              <div class="min-w-0">
+                <div class="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94A3B8]">{item.label}</div>
+                <div class="break-words font-display text-base font-semibold text-[#E2E8F0] sm:text-lg">{item.value}</div>
               </div>
-              <div>
-                <h3 class="font-display text-sm font-bold uppercase tracking-[0.12em] text-white">{item.title}</h3>
-                <p class="mt-2 text-sm leading-7 text-white/70">{item.description}</p>
+            </a>
+          ) : (
+            <div class="flex items-center gap-4 border border-white/10 bg-[#0B192C]/55 px-4 py-4 sm:gap-5 sm:px-6 sm:py-5">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center border border-[#00D2FF]/20 bg-[#00D2FF]/10 text-lg sm:h-11 sm:w-11 sm:text-xl">{item.icon}</div>
+              <div class="min-w-0">
+                <div class="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94A3B8]">{item.label}</div>
+                <div class="break-words font-display text-base font-semibold text-[#E2E8F0] sm:text-lg">{item.value}</div>
               </div>
             </div>
-          ))}
-        </div>
-
-        <div class="mt-8 border-t border-white/10 pt-6 text-sm leading-8 text-white/70">
-          <p class="font-semibold text-white">{contactInfo.company}</p>
-          <p>{contactInfo.address}</p>
-          <p>{contactInfo.tel}</p>
-          <p>{contactInfo.mobile}</p>
-          <p>{contactInfo.fax}</p>
-          <p>{contactInfo.email}</p>
-        </div>
+          )
+        ))}
       </div>
 
-      <div class="border border-white/10 bg-[#0c1b29] p-8 shadow-[0_28px_80px_rgba(2,8,23,0.42)]">
-        <div class="card-corner tl"></div>
-        <div class="card-corner tr"></div>
-        <div class="card-corner bl"></div>
-        <div class="card-corner br"></div>
-
-        <form class="space-y-5">
-          <div class="grid gap-4 sm:grid-cols-2">
-            <label class="block">
-              <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">Full Name</span>
-              <input type="text" class="mt-2 w-full border border-white/10 bg-[#112537] px-4 py-3 text-sm text-white outline-none placeholder:text-white/30 focus:border-primary" placeholder="John Doe" />
-            </label>
-            <label class="block">
-              <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">Company</span>
-              <input type="text" class="mt-2 w-full border border-white/10 bg-[#112537] px-4 py-3 text-sm text-white outline-none placeholder:text-white/30 focus:border-primary" placeholder="Your company" />
-            </label>
-          </div>
-
-          <div class="grid gap-4 sm:grid-cols-2">
-            <label class="block">
-              <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">Email</span>
-              <input type="email" class="mt-2 w-full border border-white/10 bg-[#112537] px-4 py-3 text-sm text-white outline-none placeholder:text-white/30 focus:border-primary" placeholder="john@company.com" />
-            </label>
-            <label class="block">
-              <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">Phone</span>
-              <input type="text" class="mt-2 w-full border border-white/10 bg-[#112537] px-4 py-3 text-sm text-white outline-none placeholder:text-white/30 focus:border-primary" placeholder="Your phone number" />
-            </label>
-          </div>
-
-          <label class="block">
-            <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">Project Type / Application</span>
-            <select class="mt-2 w-full border border-white/10 bg-[#112537] px-4 py-3 text-sm text-white outline-none focus:border-primary">
-              <option>Select an option</option>
-              <option>Marine Fluid Transfer</option>
-              <option>Land Fluid Transfer</option>
-              <option>Safe Mooring Systems</option>
-              <option>Berthing Aid Systems</option>
-            </select>
-          </label>
-
-          <label class="block">
-            <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">Project Details / Requirements</span>
-            <textarea class="mt-2 min-h-36 w-full border border-white/10 bg-[#112537] px-4 py-3 text-sm text-white outline-none placeholder:text-white/30 focus:border-primary" placeholder="Describe medium, diameter, pressure, temperature, approval expectations and installation context."></textarea>
-          </label>
-
-          <div class="flex flex-col gap-4 sm:flex-row">
-            <button type="button" class="inline-flex justify-center border border-primary bg-primary px-6 py-4 font-display text-xs font-semibold uppercase tracking-[0.18em] text-background transition hover:bg-primary/90">
-              Submit RFQ
-            </button>
-            <div class="flex items-center text-sm text-white/55">
-              Your information is secure and will not be shared.
-            </div>
-          </div>
-        </form>
+      <div class="mt-6 border border-[#00D2FF]/20 bg-[#00D2FF]/5 p-4 sm:mt-8 sm:p-5">
+        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-[#00D2FF]">Response Commitment</p>
+        <p class="mt-3 text-sm leading-7 text-[#94A3B8]">
+          Technical response within <strong class="text-[#E2E8F0]">48 hours</strong>. Commercial proposal within <strong class="text-[#E2E8F0]">5 business days</strong>.
+        </p>
       </div>
+    </div>
+
+    <div class="border border-white/10 bg-[#0B192C]/65 p-5 backdrop-blur-sm [clip-path:polygon(0_0,calc(100%-24px)_0,100%_24px,100%_100%,0_100%)] sm:p-8 sm:[clip-path:polygon(0_0,calc(100%-32px)_0,100%_32px,100%_100%,0_100%)] lg:p-10">
+      <h3 class="font-display text-3xl font-bold text-[#E2E8F0] sm:text-4xl">Submit Your RFQ</h3>
+      <p class="mt-2 text-sm leading-7 text-[#94A3B8]">Upload drawings, specifications or any technical documents to help us provide an accurate quote.</p>
+
+      <form class="mt-6 space-y-4 sm:mt-8 sm:space-y-5">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block">
+            <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-[#94A3B8]">Full Name *</span>
+            <input type="text" class="mt-2 w-full border border-white/10 bg-[#0B192C]/60 px-4 py-3 text-sm text-[#E2E8F0] outline-none focus:border-[#00D2FF]" placeholder="Your Name" />
+          </label>
+          <label class="block">
+            <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-[#94A3B8]">Company *</span>
+            <input type="text" class="mt-2 w-full border border-white/10 bg-[#0B192C]/60 px-4 py-3 text-sm text-[#E2E8F0] outline-none focus:border-[#00D2FF]" placeholder="Company Name" />
+          </label>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block">
+            <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-[#94A3B8]">Email *</span>
+            <input type="email" class="mt-2 w-full border border-white/10 bg-[#0B192C]/60 px-4 py-3 text-sm text-[#E2E8F0] outline-none focus:border-[#00D2FF]" placeholder="your@email.com" />
+          </label>
+          <label class="block">
+            <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-[#94A3B8]">WhatsApp / Phone</span>
+            <input type="text" class="mt-2 w-full border border-white/10 bg-[#0B192C]/60 px-4 py-3 text-sm text-[#E2E8F0] outline-none focus:border-[#00D2FF]" placeholder="+86 139 2196 7776" />
+          </label>
+        </div>
+        <label class="block">
+          <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-[#94A3B8]">Product Required *</span>
+          <select class="mt-2 w-full appearance-none border border-white/10 bg-[#0B192C]/60 px-4 py-3 text-sm text-[#E2E8F0] outline-none focus:border-[#00D2FF]">
+            <option>Select Product Category</option>
+            <option>Marine Loading Arms</option>
+            <option>Truck Loading Arms</option>
+            <option>Quick Release Mooring Hooks</option>
+            <option>Berthing Aid Systems</option>
+            <option>Mooring Load Monitoring System</option>
+            <option>Complete Terminal Solution</option>
+            <option>Other / Custom</option>
+          </select>
+        </label>
+        <label class="block">
+          <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-[#94A3B8]">Project Description *</span>
+          <textarea class="mt-2 min-h-28 w-full border border-white/10 bg-[#0B192C]/60 px-4 py-3 text-sm text-[#E2E8F0] outline-none focus:border-[#00D2FF] sm:min-h-[120px]" placeholder="Please describe your project requirements: fluid type, flow rate, pressure, temperature, quantity, applicable standards, project location, timeline..."></textarea>
+        </label>
+        <div class="border border-dashed border-white/20 bg-[#0B192C]/30 p-4 text-center transition hover:border-[#00D2FF]/40 hover:bg-[#00D2FF]/5 sm:p-6">
+          <div class="text-2xl sm:text-3xl">📎</div>
+          <p class="mt-3 text-sm leading-7 text-[#94A3B8]"><strong class="text-[#00D2FF]">Click to upload</strong> or drag and drop PDF, DWG, DXF, DOC, XLS files.</p>
+        </div>
+        <button type="button" class="inline-flex w-full items-center justify-center gap-2 bg-[#FF6B00] px-6 py-4 font-display text-sm font-semibold uppercase tracking-[0.14em] text-white hover:bg-[#ff8533] hover:shadow-[0_0_28px_rgba(255,107,0,0.35)]">
+          <span>Submit RFQ</span>
+        </button>
+        <p class="text-center text-sm text-[#94A3B8]">Your information is kept strictly confidential. We will never share your data with third parties.</p>
+        <div class="hidden">{contactInfo.company}</div>
+      </form>
     </div>
   </div>
 </section>

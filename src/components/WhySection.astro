@@ -1,0 +1,40 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { whyCapabilities, whyMetrics } from "../data/home";
+---
+
+<section id="about" class="relative overflow-hidden bg-gradient-to-b from-[#0b192c] to-[#020617] py-14 text-white md:py-24">
+  <div class="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,210,255,0.05),transparent_70%)]"></div>
+  <div class="relative mx-auto grid max-w-[1320px] gap-9 px-6 md:gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:px-10">
+    <div>
+      <SectionHeading
+        eyebrow="Why Hanlong"
+        title="More Than a Supplier — An Engineering Partner"
+        description="From concept to commissioning, Hanlong provides engineering, manufacturing and long-cycle support for fluid transfer and mooring safety systems."
+      />
+
+      <div class="mt-8 grid grid-cols-2 gap-[3px] sm:mt-12">
+        {whyMetrics.map((item) => (
+          <article class="border border-white/10 bg-[#1E3E62]/60 p-5 transition hover:border-[#00D2FF]/40 hover:bg-[#1E3E62]/85 sm:p-8">
+            <div class="font-display text-3xl font-bold leading-none text-[#00D2FF] sm:text-5xl">{item.value}</div>
+            <p class="mt-2 text-xs leading-5 text-[#94A3B8] sm:mt-3 sm:text-sm sm:leading-6">{item.label}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid gap-[3px] self-start">
+      {whyCapabilities.map((item) => (
+        <article class="flex gap-4 border border-white/10 bg-[#1E3E62]/30 p-4 transition hover:border-[#00D2FF]/35 hover:bg-[#1E3E62]/55 sm:gap-5 sm:p-6">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center border border-[#00D2FF]/20 bg-[#00D2FF]/10 text-lg [clip-path:polygon(0_0,calc(100%-8px)_0,100%_8px,100%_100%,0_100%)] sm:h-12 sm:w-12 sm:text-xl">
+            {item.icon}
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-semibold leading-tight text-[#E2E8F0] sm:text-xl">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-[#94A3B8] sm:leading-7">{item.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

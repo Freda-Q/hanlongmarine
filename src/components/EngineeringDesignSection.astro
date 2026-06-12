@@ -1,0 +1,48 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { engineeringHighlights } from "../data/home";
+const BASE_URL = import.meta.env.BASE_URL;
+---
+
+<section id="engineering" class="relative overflow-hidden bg-[#0b192c] py-14 text-white md:py-24">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(0,210,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,210,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+  <div class="relative mx-auto grid max-w-[1320px] gap-9 px-6 md:gap-16 lg:grid-cols-2 lg:items-center lg:px-10">
+    <div class="order-2 lg:order-1">
+      <div class="relative overflow-hidden border border-white/10 bg-[#1E3E62]/40 p-4 [clip-path:polygon(0_0,calc(100%-24px)_0,100%_24px,100%_100%,0_100%)] sm:p-6 sm:[clip-path:polygon(0_0,calc(100%-32px)_0,100%_32px,100%_100%,0_100%)]">
+        <div class="absolute right-0 top-0 h-6 w-6 bg-[#00D2FF] [clip-path:polygon(0_0,100%_100%,100%_0)] sm:h-8 sm:w-8"></div>
+        <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#00D2FF]">CAD Design</p>
+        <img src={`${BASE_URL}assets/delivery/3d-cad.png`} alt="3D CAD engineering design" class="mt-5 w-full" />
+      </div>
+      <div class="mt-[3px] grid gap-[3px] sm:grid-cols-2">
+        <div class="border border-white/10 bg-[#1E3E62]/40 p-4 text-center">
+          <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#00D2FF]">Software</p>
+          <p class="mt-2 text-sm text-[#94A3B8]">SolidWorks · AutoCAD · ANSYS</p>
+        </div>
+        <div class="border border-white/10 bg-[#1E3E62]/40 p-4 text-center">
+          <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#00D2FF]">Standard</p>
+          <p class="mt-2 text-sm text-[#94A3B8]">ASME · EN · API · OCIMF</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <SectionHeading
+        eyebrow="Engineering Capability"
+        title="Engineered to Your Exact Specification"
+        description="Our engineering team delivers full custom design capability from concept development to manufacturing drawings with complete FEA validation."
+      />
+
+      <div class="mt-8 grid gap-[3px] sm:mt-10 sm:grid-cols-2">
+        {engineeringHighlights.map((item) => (
+          <article class="border border-white/10 bg-[#1E3E62]/30 p-4 transition hover:border-[#00D2FF]/35 hover:bg-[#1E3E62]/55 sm:p-6">
+            <h3 class="font-display text-base font-semibold text-[#E2E8F0] sm:text-lg">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-[#94A3B8]">{item.description}</p>
+            <span class="mt-4 inline-block border border-[#00D2FF]/20 bg-[#00D2FF]/10 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-[#00D2FF]">
+              {item.tag}
+            </span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

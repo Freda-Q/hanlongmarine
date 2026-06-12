@@ -1,0 +1,65 @@
+---
+import { certifications, whyMetrics } from "../data/home";
+const BASE_URL = import.meta.env.BASE_URL;
+const introMetrics = whyMetrics.slice(0, 3);
+---
+
+<section id="factory" class="relative overflow-hidden bg-[#020617] py-14 text-white md:py-24">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(0,210,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,210,255,0.05)_1px,transparent_1px)] bg-[size:92px_92px] opacity-30"></div>
+  <div class="relative mx-auto grid max-w-[1320px] gap-9 px-6 md:gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:px-10">
+    <div class="relative">
+      <div class="absolute bottom-0 left-0 h-[82%] w-[92%] rounded-xl bg-[#123356] md:rounded-[18px]"></div>
+      <div class="relative ml-3 overflow-hidden rounded-xl border border-white/10 bg-[#0d1a2b] shadow-[0_30px_80px_rgba(0,0,0,0.35)] md:ml-5 md:rounded-[18px]">
+        <img
+          src={`${BASE_URL}assets/delivery/project-case-1.jpg`}
+          alt="Hanlong petrochemical terminal project"
+          class="h-64 w-full object-cover object-center sm:h-[430px] md:h-[520px]"
+        />
+
+        <div class="absolute bottom-4 left-4 max-w-[260px] rounded-lg bg-[#61cfff] px-4 py-3 text-[#0b192c] shadow-[0_18px_40px_rgba(0,210,255,0.25)] sm:bottom-6 sm:left-6 sm:max-w-[320px] sm:rounded-[14px] sm:px-6 sm:py-5">
+          <p class="font-display text-sm font-bold leading-tight sm:text-[18px]">Industry-Certified Manufacturer</p>
+          <p class="mt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-[#13416b] sm:mt-3 sm:text-[11px] sm:tracking-[0.24em]">
+            {certifications.slice(4).join(" · ")}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-2 lg:pl-10">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <div class="h-px w-7 bg-[#00D2FF] sm:w-10"></div>
+        <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-[#00D2FF] sm:text-[12px] sm:tracking-[0.34em]">Who We Are</p>
+      </div>
+
+      <h2 class="mt-4 font-display text-[30px] font-bold leading-[1.02] text-[#E2E8F0] sm:mt-6 sm:text-[34px] lg:text-[45px] lg:leading-[0.98]">
+        Engineering Excellence
+        <br />
+        Since 2008
+      </h2>
+
+      <div class="mt-5 space-y-4 text-sm leading-7 text-[#94A3B8] sm:mt-8 sm:space-y-6 sm:text-[15px] sm:leading-8">
+        <p>
+          <span class="font-semibold text-[#E2E8F0]">Suzhou Hanlong Petrochemical Equipment Co., Ltd.</span>
+          {" "}is a professional manufacturer headquartered in Zhangjiagang, Jiangsu, around 80 km from Shanghai.
+          Founded in 2008, we have grown into a trusted engineering partner for oil terminals, LNG jetties, chemical wharves and port infrastructure projects worldwide.
+        </p>
+
+        <p>
+          We design, manufacture and commission a complete range of
+          {" "}
+          <span class="font-semibold text-[#E2E8F0]">fluid handling equipment, port mooring systems and intelligent safety monitoring solutions</span>
+          {" "}delivering factory-direct quality with full engineering documentation to EPC contractors and terminal operators across 30+ countries.
+        </p>
+      </div>
+
+      <div class="mt-7 grid grid-cols-3 gap-[3px] sm:mt-10">
+        {introMetrics.map((item) => (
+          <article class="border border-white/10 bg-[#121f33]/92 p-4 transition hover:border-[#00D2FF]/35 hover:bg-[#152742] sm:p-7">
+            <div class="font-display text-2xl font-bold leading-none text-[#55cfff] sm:text-4xl">{item.value}</div>
+            <p class="mt-2 font-mono text-[8px] uppercase tracking-[0.14em] text-[#94A3B8] sm:mt-3 sm:text-[10px] sm:tracking-[0.24em]">{item.label}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

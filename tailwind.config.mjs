@@ -4,18 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#0a0f1a",
-        foreground: "#c5d8ed",
-        primary: "#00d4b4",
-        surface: "#0d1525",
-        panel: "#111d30",
-        muted: "#8fa8c4",
-        line: "rgba(0, 212, 180, 0.18)"
+        background: "#0B192C",
+        foreground: "#E2E8F0",
+        primary: "#00D2FF",
+        surface: "#1E3E62",
+        panel: "#243B55",
+        muted: "#94A3B8",
+        line: "rgba(0, 210, 255, 0.18)"
       },
       fontFamily: {
-        sans: ["Barlow", "sans-serif"],
-        display: ["Barlow Condensed", "sans-serif"],
-        mono: ["Share Tech Mono", "monospace"]
+        sans: ["Inter", "sans-serif"],
+        display: ["Space Grotesk", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"]
       },
       boxShadow: {
         tech: "0 18px 40px rgba(0, 0, 0, 0.28)"

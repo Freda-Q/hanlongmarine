@@ -1,0 +1,40 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { qualityCertificates, qualityTests } from "../data/home";
+---
+
+<section id="quality" class="bg-gradient-to-b from-[#020617] to-[#0b192c] py-14 text-white md:py-24">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <SectionHeading
+      eyebrow="Quality Assurance"
+      title="International Standards, Verified at Every Stage"
+      description="Every Hanlong product passes multi-stage inspection with full traceability from incoming material verification to final hydrostatic testing."
+    />
+
+    <div class="mt-9 grid gap-9 md:mt-14 md:gap-16 lg:grid-cols-[1fr_1.5fr]">
+      <div class="grid gap-[3px]">
+        {qualityCertificates.map((item) => (
+          <article class="flex gap-4 border border-white/10 border-l-[3px] border-l-[#00D2FF] bg-[#1E3E62]/30 px-4 py-4 transition hover:border-[#00D2FF]/35 hover:bg-[#1E3E62]/55 sm:gap-5 sm:px-6 sm:py-5">
+            <div class="min-w-[68px] font-display text-xl font-bold text-[#00D2FF] sm:min-w-[82px] sm:text-2xl">{item.name}</div>
+            <p class="text-sm leading-6 text-[#94A3B8]">{item.description}</p>
+          </article>
+        ))}
+      </div>
+
+      <div>
+        <p class="mb-6 max-w-3xl text-sm leading-7 text-[#94A3B8] sm:mb-8 sm:text-lg sm:leading-9">
+          Every Hanlong product undergoes a comprehensive multi-stage inspection protocol. From incoming material verification to final hydrostatic testing, our quality management system ensures complete traceability and documentation for every component.
+        </p>
+        <div class="grid grid-cols-2 gap-[3px] xl:grid-cols-3">
+          {qualityTests.map((item) => (
+            <article class="border border-white/10 bg-[#1E3E62]/30 p-3 text-center [clip-path:polygon(0_0,calc(100%-12px)_0,100%_12px,100%_100%,0_100%)] transition hover:border-[#00D2FF]/35 hover:bg-[#1E3E62]/55 sm:p-6 sm:[clip-path:polygon(0_0,calc(100%-16px)_0,100%_16px,100%_100%,0_100%)]">
+              <div class="text-2xl sm:text-4xl">{item.icon}</div>
+              <h3 class="mt-2 font-display text-base font-bold text-[#E2E8F0] sm:mt-4 sm:text-xl">{item.name}</h3>
+              <p class="mt-1.5 text-xs leading-5 text-[#94A3B8] sm:mt-2 sm:text-sm sm:leading-6">{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
